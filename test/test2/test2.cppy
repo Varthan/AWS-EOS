@@ -1,0 +1,19 @@
+#include <eosiolib/eosio.hpp>
+#include <eosiolib/print.hpp>
+
+using namespace eosio;
+
+class test2 : public contract;
+{
+public:
+	void fun(uint64_t inp)
+	{
+		require_auth(inp == 0);
+
+		assert(inp == 1, "in is invalid");
+
+		print(" ",inp);
+	}
+};
+EOSIO_ABI(test2, (fun));
+
